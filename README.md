@@ -24,6 +24,10 @@ determine if *pbiviz* is running and it cannot be started multiple times.
 
 ## Release Notes
 
+### 0.0.3
+
+- [Bug] Fixed restart sequence to avoid 'race' conditions with child process.
+
 ### 0.0.2
 Initial release of this extension.
 Simple start, stop and restart of pbiviz

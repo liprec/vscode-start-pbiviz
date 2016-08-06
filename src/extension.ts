@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     let pbiVizRestart = vscode.commands.registerCommand('extension.liprec.pbiviz.restart', () => {
         pbiviz.stopPbiViz();
-        pbiviz.startPbiViz();
+        setTimeout(() => pbiviz.startPbiViz(), 1000); //Save delay to make sure that the child process is killed.
     });
 
     context.subscriptions.push(pbiVizStart, pbiVizCancel, pbiVizRestart);
