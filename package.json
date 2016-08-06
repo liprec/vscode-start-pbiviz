@@ -2,10 +2,19 @@
     "name": "vscode-start-pbiviz",
     "displayName": "PBIViz CLI Control",
     "description": "Compile and start your Power BI custom visual",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "liprec",
     "icon": "icon/pbi.jpg",
     "license": "LICENSE",
+    "bugs": {
+        "url": "https://github.com/liprec/vscode-start-pbiviz/issues",
+        "email": "mail@jppp.org"
+    },
+    "homepage": "https://azurebi.jppp.org/2016/08/06/vscode-extension-for-power-bi-custom-visuals/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liprec/vscode-start-pbiviz/"
+    },
     "engines": {
         "vscode": "^1.0.0"
     },

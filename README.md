@@ -24,7 +24,6 @@ determine if *pbiviz* is running and it cannot be started multiple times.
 
 ## Release Notes
 
-### 0.0.1
-
+### 0.0.2
 Initial release of this extension.
 Simple start, stop and restart of pbiviz
