@@ -1,11 +1,11 @@
 # vscode-start-pbiviz README
 
-This extension adds to Visual Studio Code the option to directly start and restart the PowerBI Visual tools (*pbiviz*)
+This Visual Studio Code extension adds the option to directly start and restart the PowerBI Visual tools ([*pbiviz*](https://github.com/Microsoft/PowerBI-visuals-tools))
 for developing Power BI Custom Visuals.
 
 ## Features
 
-Add 'build-in' suport for *pbiviz* in Visual Studio Code.
+Add 'build-in' support for *pbiviz* in Visual Studio Code.
 
 - Ctrl+F8:        Start *pbiviz* and load the Power BI Custom Visual
 - Crtl+Shift+F8:  Restart *pbiviz* and reload the new Power BI Custom Visual code
