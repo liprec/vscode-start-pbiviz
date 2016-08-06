@@ -3,7 +3,7 @@
     "displayName": "PBIViz CLI Control",
     "description": "Compile and start your Power BI custom visual",
     "version": "0.0.1",
-    "publisher": "Liprec",
+    "publisher": "liprec",
     "icon": "icon/pbi.jpg",
     "license": "LICENSE",
     "engines": {
