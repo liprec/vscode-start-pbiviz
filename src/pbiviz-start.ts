@@ -9,8 +9,35 @@ let pbiVizPID = 0;
 let runningStatus = false;
 
 export function startPbiViz() {
-    let pbiVizOutputChannel = vscode.window.createOutputChannel('PBIViz Cli Control');
+    runPbiViz('start');
+}
 
+export function stopPbiViz() {
+    // cancel running process
+    if (pbivizProcess) {
+        let isWin = /^win/.test(process.platform);
+        if(!isWin) {
+            pbivizProcess.kill();
+        } else {
+            exec('taskkill /PID ' + pbivizProcess.pid + ' /T /F', function (error, stdout, stderr) {});             
+        }
+    } else {
+        runningStatus = null;
+    }
+}
+
+export function pacakgePbiViz() {
+    runPbiViz('package');
+}
+
+export function updatePbiViz() {
+    runPbiViz('update');
+}
+
+function runPbiViz(parameter: string) {
+    let pbiVizOutputChannel = vscode.window.createOutputChannel('PBIViz Cli Control');
+    pbiVizOutputChannel.show(false);
+    
     if (pbiVizPID != 0) {
         vscode.window.showErrorMessage('Process is already running!');
         return;
@@ -29,12 +56,11 @@ export function startPbiViz() {
             opt.shell = true;
         }
         
-        pbivizProcess = spawn('pbiviz', ['start'], opt);
+        pbivizProcess = spawn('pbiviz', [parameter], opt);
 
         let pbiVizPID = pbivizProcess.pid;
 
         pbivizProcess.stdout.on('data', (data) => {
-            pbiVizOutputChannel.show();
             pbiVizOutputChannel.append(`${data}`);
         });
 
@@ -46,25 +72,13 @@ export function startPbiViz() {
         pbivizProcess.on('close', (code) => {
             pbiVizPID = pbiVizPID === pbivizProcess.pid ? 0 : pbiVizPID; 
             pbivizProcess= null;
-            pbiVizOutputChannel.show();
-            pbiVizOutputChannel.append(`PbiViz process stopped.`);
+            if (parameter==="start") {
+                pbiVizOutputChannel.show(false);
+                pbiVizOutputChannel.append(`PbiViz process stopped.`);
+            }
         });
 
     } catch (err) {
         console.log(err);
-    }
-}
-
-export function stopPbiViz() {
-    // cancel running process
-    if (pbivizProcess) {
-        let isWin = /^win/.test(process.platform);
-        if(!isWin) {
-            pbivizProcess.kill();
-        } else {
-            exec('taskkill /PID ' + pbivizProcess.pid + ' /T /F', function (error, stdout, stderr) {});             
-        }
-    } else {
-        runningStatus = null;
     }
 }

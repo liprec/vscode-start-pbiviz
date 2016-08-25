@@ -17,7 +17,15 @@ export function activate(context: vscode.ExtensionContext) {
         setTimeout(() => pbiviz.startPbiViz(), 1000); //Save delay to make sure that the child process is killed.
     });
 
-    context.subscriptions.push(pbiVizStart, pbiVizCancel, pbiVizRestart);
+    let pbiVizPackage = vscode.commands.registerCommand('extension.liprec.pbiviz.package', () => {
+        pbiviz.pacakgePbiViz();
+    });
+
+    let pbiVizUpdate = vscode.commands.registerCommand('extension.liprec.pbiviz.update', () => {
+        pbiviz.updatePbiViz();
+    });
+
+    context.subscriptions.push(pbiVizStart, pbiVizCancel, pbiVizRestart, pbiVizPackage, pbiVizUpdate);
 }
 
 export function deactivate() {
