@@ -5,6 +5,7 @@ let spawn = require('child_process').spawn;
 let exec = require('child_process').exec;
 
 let pbivizProcess;
+let pbiVizOutputChannel;
 let pbiVizPID = 0;
 let runningStatus = false;
 
@@ -35,7 +36,11 @@ export function updatePbiViz() {
 }
 
 function runPbiViz(parameter: string) {
-    let pbiVizOutputChannel = vscode.window.createOutputChannel('PBIViz Cli Control');
+    if (pbiVizOutputChannel==undefined) {
+        pbiVizOutputChannel = vscode.window.createOutputChannel('PBIViz Cli Control');
+    } else {
+        pbiVizOutputChannel.clear();
+    }
     pbiVizOutputChannel.show(false);
     
     if (pbiVizPID != 0) {
@@ -74,7 +79,7 @@ function runPbiViz(parameter: string) {
             pbivizProcess= null;
             if (parameter==="start") {
                 pbiVizOutputChannel.show(false);
-                pbiVizOutputChannel.append(`PbiViz process stopped.`);
+                pbiVizOutputChannel.append(`\nPbiViz process stopped.\n`);
             }
         });
 

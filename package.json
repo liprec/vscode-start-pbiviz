@@ -2,7 +2,7 @@
     "name": "vscode-start-pbiviz",
     "displayName": "PBIViz CLI Control",
     "description": "Compile and start your Power BI custom visual",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "liprec",
     "icon": "icon/pbi.jpg",
     "license": "LICENSE",

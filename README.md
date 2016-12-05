@@ -26,6 +26,11 @@ determine if *pbiviz* is running and it cannot be started multiple times.
 
 ## Release Notes
 
+### 0.0.5
+
+- [Bug] Fixed that every restart created a new outout window 'PBIViz Cli Control'
+- Layout output window improved
+
 ### 0.0.4
 
 - Added 'pbiviz package' command
