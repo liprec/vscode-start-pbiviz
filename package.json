@@ -2,10 +2,19 @@
     "name": "vscode-start-pbiviz",
     "displayName": "PBIViz CLI Control",
     "description": "Compile and start your Power BI custom visual",
-    "version": "0.0.1",
+    "version": "0.0.5",
     "publisher": "liprec",
     "icon": "icon/pbi.jpg",
     "license": "LICENSE",
+    "bugs": {
+        "url": "https://github.com/liprec/vscode-start-pbiviz/issues",
+        "email": "mail@jppp.org"
+    },
+    "homepage": "https://azurebi.jppp.org/2016/08/06/vscode-extension-for-power-bi-custom-visuals/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/liprec/vscode-start-pbiviz/"
+    },
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -15,7 +24,9 @@
     "activationEvents": [
         "onCommand:extension.liprec.pbiviz.exec",
         "onCommand:extension.liprec.pbiviz.restart",
-        "onCommand:extension.liprec.pbiviz.cancel"
+        "onCommand:extension.liprec.pbiviz.cancel",
+        "onCommand:extension.liprec.pbiviz.package",
+        "onCommand:extension.liprec.pbiviz.update"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -26,12 +37,22 @@
         },
         {
             "command": "extension.liprec.pbiviz.restart",
-            "title": "Restart PBIViz CLI",
+            "title": "Restart PbiViz CLI",
             "category": "Power BI Visuals"
         },
         {
             "command": "extension.liprec.pbiviz.cancel",
-            "title": "Stop PBIViz CLI",
+            "title": "Stop PbiViz CLI",
+            "category": "Power BI Visuals"
+        },
+        {
+            "command": "extension.liprec.pbiviz.package",
+            "title": "Package Power BI Custom Visual",
+            "category": "Power BI Visuals"
+        },
+        {
+            "command": "extension.liprec.pbiviz.update",
+            "title": "Update Power BI Visual API",
             "category": "Power BI Visuals"
         }],
         "keybindings": [
@@ -46,6 +67,10 @@
         {
             "command": "extension.liprec.pbiviz.cancel",
             "key": "Ctrl+F9"
+        },
+        {
+            "command": "extension.liprec.pbiviz.package",
+            "key": "Ctrl+Shift+B"
         }]
     },
     "scripts": {
